@@ -8,7 +8,7 @@ Fixed::Fixed(int const value) : value_(value << fraction_) {
 	std::cout << "Int constructor called" << std::endl;
 }
 
-Fixed::Fixed(float const value) : value_((int)std::roundf(value * (float)(1 << fraction_))) {
+Fixed::Fixed(float const value) : value_((int)roundf(value * (float)(1 << fraction_))) {
 	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -73,7 +73,7 @@ Fixed Fixed::operator * (const Fixed &fixed) const {
 Fixed Fixed::operator / (const Fixed &fixed) const {
 	Fixed	ret;
 
-	ret.setRawBits((int)std::roundf(((float)this->value_ / (float)fixed.getRawBits()) * (float)(1 << this->fraction_)));
+	ret.setRawBits((int)roundf(((float)this->value_ / (float)fixed.getRawBits()) * (float)(1 << this->fraction_)));
 	return ret;
 }
 
